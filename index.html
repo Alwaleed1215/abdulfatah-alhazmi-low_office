@@ -3,40 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب الأستاذ عبدالفتاح الحازمي للمحاماة</title>
+    <title>مكتب عبدالفتاح الحازمي للمحاماة والإستشارات القانونية والتوثيق العيني للعقار</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* المتغيرات والألوان الأساسية */
+        :root {
+            --primary-color: #0c1e33; /* كحلي ملكي داكن */
+            --primary-light: #153254; 
+            --secondary-color: #cda45e; /* ذهبي فخم */
+            --secondary-hover: #b38b47;
+            --text-color: #333;
+            --text-gray: #666;
+            --bg-light: #f4f6f9;
+            --white: #fff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* تنسيقات عامة */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-title .line {
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* شريط التنقل العلوي (Desktop) */
+        .navbar {
+            background-color: rgba(12, 30, 51, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+        }
+
+        .logo h2 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: -5px;
+        }
+
+        .logo p {
+            color: var(--white);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            background: linear-gradient(rgba(12, 30, 51, 0.85), rgba(12, 30, 51, 0.9)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        /* من نحن */
+        .about-text {
+            text-align: justify;
+            text-align-last: center;
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            line-height: 2;
+        }
+
+        /* الخدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--primary-light);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card * {
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .service-card:hover h3, 
+        .service-card:hover p {
+            color: var(--white);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        /* تواصل معنا */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .info-box {
+            padding: 30px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .info-box i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* أيقونة الواتساب العائمة */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* البار السفلي للجوال (Mobile Bottom Nav) */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 10px 0;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        .bottom-nav-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bottom-nav-item {
+            text-decoration: none;
+            color: var(--text-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .bottom-nav-item i {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav-item.active,
+        .bottom-nav-item:hover {
+            color: var(--secondary-color);
+        }
+
+        /* استعلامات الشاشات (Responsive) */
+        @media (max-width: 768px) {
+            /* إخفاء روابط القائمة العلوية في الجوال */
+            .nav-links {
+                display: none; 
+            }
+            
+            /* إظهار البار السفلي */
+            .bottom-nav {
+                display: block;
+            }
+
+            /* رفع أيقونة الواتساب لتجنب البار السفلي */
+            .floating-whatsapp {
+                bottom: 80px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+
+            /* تعديل مساحات الهيرو */
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            /* ترك مساحة في أسفل الموقع للبار السفلي */
+            body {
+                padding-bottom: 60px; 
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">
+            <a href="#home" class="logo">
                 <h2>مكتب الحازمي</h2>
-                <p>للمحاماة والاستشارات</p>
-            </div>
+                <p>للمحاماة والتوثيق العيني</p>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
                 <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#about">من نحن</a></li>
                 <li><a href="#blog">المدونة</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
             </ul>
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </nav>
 
     <header id="home" class="hero">
         <div class="container hero-content">
-            <h1>مكتب الأستاذ عبدالفتاح الحازمي</h1>
-            <h3>رؤية قانونية ثاقبة ودرع حصين لحقوقك</h3>
+            <h3>مكتب الأستاذ عبدالفتاح الحازمي</h3>
+            <h1>رؤية قانونية ثاقبة<br><span style="color: var(--secondary-color);">ودرع حصين لحقوقك</span></h1>
             <p>لأن حقوقك ومصالحك القانونية تتطلب درعاً قانونياً حصيناً، يبرز مكتبنا كمستشارك القانوني وخيارك الأوثق لحفظ حقوقك؛ فلا مجال للمصادفات في عالم تحكمه الأنظمة وتتشابك فيه الحقوق.</p>
-            <a href="#contact" class="btn btn-primary">اطلب استشارتك الآن</a>
+            <a href="#contact" class="btn btn-primary">اطلب استشارتك القانونية الآن</a>
         </div>
     </header>
+
+    <section id="services" class="services section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا القانونية</h2>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-gavel service-icon"></i>
+                    <h3>الترافع أمام المحاكم</h3>
+                    <p>تمثيل قانوني صارم واحترافي أمام كافة درجات المحاكم واللجان القضائية لضمان وحماية حقوقك بالكامل.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-contract service-icon"></i>
+                    <h3>صياغة ومراجعة العقود</h3>
+                    <p>هندسة قانونية دقيقة للعقود والاتفاقيات لسد الثغرات وحماية مصالحك التجارية والشخصية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake-angle service-icon"></i>
+                    <h3>تسوية النزاعات</h3>
+                    <p>إدارة وتفكيك أعقد النزاعات عبر حلول ودية أو تحكيمية تضمن لك نتائج حاسمة وسريعة ومضمونة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-city service-icon"></i>
+                    <h3>التسجيل العيني للعقار</h3>
+                    <p>تسهيل وإتمام كافة إجراءات التسجيل العيني لضمان استقرار ملكيتك العقارية وحمايتها من أي تجاوزات.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-stamp service-icon"></i>
+                    <h3>خدمة التوثيق</h3>
+                    <p>خدمات توثيقية معتمدة لإصدار الوكالات وتوثيق العقود والإقرارات بمرونة وموثوقية عالية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-balance-scale-right service-icon"></i>
+                    <h3>الإستشارات القانونية</h3>
+                    <p>نقدم لك الرأي القانوني السديد والمبني على دراسة مستفيضة لواقعتك، لنضعك دائماً في موقف القوة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="about" class="about section-padding">
         <div class="container">
@@ -46,80 +527,45 @@
             </div>
             <div class="about-content">
                 <p class="about-text">
-                    نحن لا نقدم استشارات قانونية عابرة، بل نصمم استراتيجيات استباقية تضعك دائماً في موقف القوة. بخبرة متجذرة في أروقة المحاكم، واحترافية لا تقبل المساومة، يمثل مكتب الأستاذ عبدالفتاح الحازمي الخيار الأول والموثوق للنخبة من الأفراد والكيانات التجارية. نحن نتولى تفكيك أعقد النزاعات، وهندسة أدق العقود، لنضمن لك حماية مطلقة لمكتسباتك، ونتائج قانونية حاسمة تقلب الموازين لصالحك.
+                    نحن لا نقدم استشارات قانونية عابرة، بل نصمم استراتيجيات استباقية تضعك دائماً في موقف القوة. بخبرة متجذرة في أروقة المحاكم، واحترافية لا تقبل المساومة، يمثل <strong>مكتب الأستاذ عبدالفتاح الحازمي</strong> الخيار الأول والموثوق للنخبة من الأفراد والكيانات التجارية. نحن نتولى تفكيك أعقد النزاعات، وهندسة أدق العقود، لنضمن لك حماية مطلقة لمكتسباتك، ونتائج قانونية حاسمة تقلب الموازين لصالحك.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services section-padding bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا</h2>
-                <div class="line"></div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-gavel service-icon"></i>
-                    <h3>الترافع أمام المحاكم</h3>
-                    <p>تمثيل قانوني صارم واحترافي أمام كافة درجات المحاكم واللجان القضائية لضمان حقوقك.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-file-signature service-icon"></i>
-                    <h3>صياغة ومراجعة العقود</h3>
-                    <p>هندسة قانونية دقيقة للعقود والاتفاقيات لسد الثغرات وحماية مصالحك التجارية والشخصية.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-handshake service-icon"></i>
-                    <h3>تسوية النزاعات</h3>
-                    <p>إدارة وتفكيك أعقد النزاعات عبر حلول ودية أو تحكيمية تضمن لك نتائج حاسمة وسريعة.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-building service-icon"></i>
-                    <h3>التسجيل العيني للعقار</h3>
-                    <p>تسهيل وإتمام كافة إجراءات التسجيل العيني لضمان استقرار ملكيتك العقارية وحمايتها.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-stamp service-icon"></i>
-                    <h3>خدمة التوثيق</h3>
-                    <p>خدمات توثيقية معتمدة لإصدار الوكالات وتوثيق العقود والإقرارات بمرونة وموثوقية عالية.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-comments service-icon"></i>
-                    <h3>الإستشارات القانونية</h3>
-                    <p>نقدم لك الرأي القانوني السديد والمبني على دراسة مستفيضة لواقعتك، لنضعك في موقف القوة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="blog section-padding">
+    <section id="blog" class="blog section-padding bg-light">
         <div class="container">
             <div class="section-title">
                 <h2>المدونة القانونية</h2>
                 <div class="line"></div>
-                <p style="text-align: center; margin-top: 20px; color: #666;">قريباً.. مقالات، شروحات للأنظمة، وآخر التحديثات القانونية.</p>
+                <p style="text-align: center; margin-top: 20px; color: var(--text-gray); font-size: 1.2rem;">
+                    <i class="fas fa-tools" style="font-size: 2rem; color: var(--secondary-color); display: block; margin-bottom: 15px;"></i>
+                    قريباً.. أحدث المقالات، شروحات الأنظمة، والأخبار القانونية.
+                </p>
             </div>
-            </div>
+        </div>
     </section>
 
-    <section id="contact" class="contact section-padding bg-light">
+    <section id="contact" class="contact section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>تواصل معنا</h2>
                 <div class="line"></div>
             </div>
             <div class="contact-info">
-                <div class="info-item">
+                <div class="info-box">
                     <i class="fas fa-map-marker-alt"></i>
+                    <h4>العنوان</h4>
                     <p>المملكة العربية السعودية، الرياض</p>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
+                <div class="info-box">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>الهاتف</h4>
                     <p dir="ltr">+966 5X XXX XXXX</p>
                 </div>
-                <div class="info-item">
+                <div class="info-box">
                     <i class="fas fa-envelope"></i>
+                    <h4>البريد الإلكتروني</h4>
                     <p>info@alhazmilaw.com</p>
                 </div>
             </div>
@@ -128,27 +574,71 @@
 
     <footer>
         <div class="container">
-            <p>جميع الحقوق محفوظة &copy; 2026 لمكتب الأستاذ عبدالفتاح الحازمي للمحاماة</p>
-            <p style="font-size: 14px; margin-top: 5px;">تم التطوير بواسطة م. إسلام</p>
+            <p>جميع الحقوق محفوظة &copy; 2026 لمكتب الأستاذ عبدالفتاح الحازمي للمحاماة والإستشارات القانونية والتوثيق العيني للعقار</p>
+            <p style="font-size: 14px; margin-top: 10px; color: #aaa;">تم التطوير بواسطة م. إسلام</p>
         </div>
     </footer>
 
-    <script>
-        const burger = document.querySelector('.burger-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        burger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    <a href="https://wa.me/966500000000" target="_blank" class="floating-whatsapp" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <nav class="bottom-nav">
+        <div class="container bottom-nav-container">
+            <a href="#home" class="bottom-nav-item active" onclick="setActiveNav(this)">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="#services" class="bottom-nav-item" onclick="setActiveNav(this)">
+                <i class="fas fa-balance-scale"></i>
+                <span>الخدمات</span>
+            </a>
+            <a href="#about" class="bottom-nav-item" onclick="setActiveNav(this)">
+                <i class="fas fa-info-circle"></i>
+                <span>من نحن</span>
+            </a>
+            <a href="#contact" class="bottom-nav-item" onclick="setActiveNav(this)">
+                <i class="fas fa-phone-alt"></i>
+                <span>تواصل</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // دالة لتغيير اللون النشط في البار السفلي
+        function setActiveNav(element) {
+            document.querySelectorAll('.bottom-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // التمرير السلس للروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                navLinks.classList.remove('active');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // تغيير لون الخلفية للقائمة العلوية عند التمرير (للديسكتوب)
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(12, 30, 51, 0.98)';
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.style.backgroundColor = 'rgba(12, 30, 51, 0.95)';
+                navbar.style.padding = '15px 0';
+            }
         });
     </script>
 </body>
