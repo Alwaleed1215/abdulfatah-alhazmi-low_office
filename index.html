@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتب عبدالفتاح الحازمي للمحاماة والاستشارات القانونية</title>
     
+    <link rel="icon" type="image/webp" href="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,6 +33,12 @@
     <style>
         body { font-family: 'Cairo', sans-serif; overflow: hidden; } /* Overflow hidden for splash screen */
         
+        /* Language Switching Logic */
+        html[lang="en"] .ar-txt { display: none !important; }
+        html[lang="ar"] .en-txt { display: none !important; }
+        
+        html[lang="en"] body { font-family: sans-serif; } /* Optional: switch font for EN if needed */
+        
         /* Hover & Animation Effects */
         .hover-card { transition: all 0.4s ease; }
         .hover-card:hover { transform: translateY(-10px); border-color: #D4AF37; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2); }
@@ -54,44 +62,73 @@
 <body class="bg-light dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
     <div id="splash-screen" class="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center cursor-pointer" onclick="closeSplashScreen()">
-        <div class="text-center animate-pulse">
-            <i class="fa-solid fa-scale-balanced text-gold text-6xl mb-4"></i>
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">مكتب عبدالفتاح الحازمي</h1>
-            <p class="text-gold text-lg">للمحاماة والاستشارات القانونية والتوثيق</p>
+        <div class="text-center animate-pulse flex flex-col items-center">
+            <img src="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp" alt="مكتب عبدالفتاح الحازمي" class="h-32 w-auto mb-6">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">
+                <span class="ar-txt">مكتب عبدالفتاح الحازمي</span>
+                <span class="en-txt">Abdul Fattah Al-Hazmi</span>
+            </h1>
+            <p class="text-gold text-lg">
+                <span class="ar-txt">للمحاماة والاستشارات القانونية والتوثيق</span>
+                <span class="en-txt">Law Firm & Legal Consultations</span>
+            </p>
         </div>
         <div class="absolute bottom-8 text-center w-full">
             <div class="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-white text-sm">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</p>
+            <p class="text-white text-sm">
+                <span class="ar-txt">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</span>
+                <span class="en-txt">👑 Developed & Designed by: Eng. Islam El-Sheikh 👑</span>
+            </p>
         </div>
     </div>
 
     <div class="bg-primary text-gold text-sm py-2 px-4 flex justify-between items-center hidden md:flex">
-        <div><i class="fa-solid fa-scale-unbalanced mr-2"></i> مرخص من وزارة العدل | ترخيص رقم: 462590</div>
-        <div class="flex gap-4">
-            <span><i class="fa-solid fa-phone mr-1"></i> 0551110097</span>
-            <span><i class="fa-solid fa-envelope mr-1"></i> info@alhazmilaw.com</span>
+        <div>
+            <i class="fa-solid fa-scale-unbalanced mr-2"></i> 
+            <span class="ar-txt">مرخص من وزارة العدل | ترخيص رقم: 462590</span>
+            <span class="en-txt">Licensed by Ministry of Justice | License No: 462590</span>
+        </div>
+        <div class="flex gap-4" dir="ltr">
+            <span><i class="fa-solid fa-phone ml-1 mr-1"></i> 0551110097</span>
+            <span><i class="fa-solid fa-envelope ml-1 mr-1"></i> info@alhazmilaw.com</span>
         </div>
     </div>
 
     <header class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2">
-                <i class="fa-solid fa-scale-balanced text-primary dark:text-gold text-3xl"></i>
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp" alt="شعار المكتب" class="h-12 w-auto">
                 <div>
-                    <h2 class="font-bold text-xl text-primary dark:text-white leading-tight">عبدالفتاح الحازمي</h2>
-                    <span class="text-xs text-gold font-semibold">للمحاماة والاستشارات القانونية</span>
+                    <h2 class="font-bold text-xl text-primary dark:text-white leading-tight">
+                        <span class="ar-txt">عبدالفتاح الحازمي</span>
+                        <span class="en-txt">Al-Hazmi Law Firm</span>
+                    </h2>
+                    <span class="text-xs text-gold font-semibold">
+                        <span class="ar-txt">للمحاماة والاستشارات القانونية</span>
+                        <span class="en-txt">Legal Consultations</span>
+                    </span>
                 </div>
             </a>
 
             <nav class="hidden md:flex gap-6 items-center font-semibold text-primary dark:text-white">
-                <a href="#" class="hover:text-gold transition">الرئيسية</a>
-                <a href="#services" class="hover:text-gold transition">خدماتنا</a>
-                <a href="#about" class="hover:text-gold transition">من نحن</a>
-                <a href="#contact" class="hover:text-gold transition">تواصل معنا</a>
+                <a href="#" class="hover:text-gold transition">
+                    <span class="ar-txt">الرئيسية</span><span class="en-txt">Home</span>
+                </a>
+                <a href="#services" class="hover:text-gold transition">
+                    <span class="ar-txt">خدماتنا</span><span class="en-txt">Services</span>
+                </a>
+                <a href="#about" class="hover:text-gold transition">
+                    <span class="ar-txt">من نحن</span><span class="en-txt">About Us</span>
+                </a>
+                <a href="#contact" class="hover:text-gold transition">
+                    <span class="ar-txt">تواصل معنا</span><span class="en-txt">Contact Us</span>
+                </a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <button onclick="toggleLang()" class="text-primary dark:text-white hover:text-gold border border-gray-300 dark:border-gray-600 px-2 py-1 rounded text-sm transition">EN/AR</button>
+                <button onclick="toggleLang()" class="text-primary dark:text-white hover:text-gold border border-gray-300 dark:border-gray-600 px-2 py-1 rounded text-sm transition font-bold">
+                    <span class="ar-txt">English</span><span class="en-txt">عربي</span>
+                </button>
                 <button onclick="toggleDarkMode()" class="text-primary dark:text-white hover:text-gold text-xl transition">
                     <i id="theme-icon" class="fa-solid fa-moon"></i>
                 </button>
@@ -104,10 +141,10 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-primary/95 z-[60] hidden flex flex-col items-center justify-center text-white text-2xl font-bold space-y-8">
         <button class="absolute top-6 right-6 text-4xl text-gold" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
-        <a href="#" onclick="toggleMobileMenu()" class="hover:text-gold">الرئيسية</a>
-        <a href="#services" onclick="toggleMobileMenu()" class="hover:text-gold">خدماتنا</a>
-        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-gold">من نحن</a>
-        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-gold">تواصل معنا</a>
+        <a href="#" onclick="toggleMobileMenu()" class="hover:text-gold"><span class="ar-txt">الرئيسية</span><span class="en-txt">Home</span></a>
+        <a href="#services" onclick="toggleMobileMenu()" class="hover:text-gold"><span class="ar-txt">خدماتنا</span><span class="en-txt">Services</span></a>
+        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-gold"><span class="ar-txt">من نحن</span><span class="en-txt">About Us</span></a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-gold"><span class="ar-txt">تواصل معنا</span><span class="en-txt">Contact</span></a>
     </div>
 
     <div class="fixed left-4 bottom-24 md:bottom-8 flex flex-col gap-3 z-40">
@@ -119,25 +156,31 @@
         </a>
     </div>
 
-    <div class="md:hidden fixed bottom-0 left-0 w-full glass border-t border-gray-200 dark:border-gray-700 z-50 flex justify-around py-3 text-primary dark:text-white text-xs">
-        <a href="#" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-house text-lg mb-1"></i> الرئيسية</a>
-        <a href="#services" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-briefcase text-lg mb-1"></i> خدماتنا</a>
-        <a href="#about" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-users text-lg mb-1"></i> من نحن</a>
-        <a href="#contact" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-envelope text-lg mb-1"></i> تواصل</a>
-    </div>
-
     <section class="relative bg-primary py-24 md:py-32 overflow-hidden flex items-center justify-center text-center">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 20px 20px;"></div>
         
         <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">مكتب عبدالفتاح الحازمي للمحاماة</h1>
-            <p class="text-gold text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-light">رؤية قانونية ثاقبة ودرع حصين لحقوقك.. تمثيل قضائي حاسم وهندسة للاستشارات القانونية.</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                <span class="ar-txt">مكتب عبدالفتاح الحازمي للمحاماة</span>
+                <span class="en-txt">Abdul Fattah Al-Hazmi Law Firm</span>
+            </h1>
+            <p class="text-gold text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-light">
+                <span class="ar-txt">رؤية قانونية ثاقبة ودرع حصين لحقوقك.. تمثيل قضائي حاسم وهندسة للاستشارات القانونية.</span>
+                <span class="en-txt">Profound legal vision and an impenetrable shield for your rights.. Decisive judicial representation.</span>
+            </p>
             
             <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl inline-flex flex-col md:flex-row items-center gap-6 border-b-4 border-gold mx-auto animate-bounce" style="animation-duration: 3s;">
                 <img src="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp" alt="شعار وزارة العدل" class="h-20 w-auto">
-                <div class="text-center md:text-right">
-                    <h3 class="text-xl font-bold text-primary dark:text-white">مكتب مرخص من وزارة العدل</h3>
-                    <p class="text-gray-600 dark:text-gray-300 font-semibold mt-1">وموثق معتمد <span class="text-gold">462590</span></p>
+                <div class="text-center md:text-right rtl:md:text-right ltr:md:text-left">
+                    <h3 class="text-xl font-bold text-primary dark:text-white">
+                        <span class="ar-txt">مكتب مرخص من وزارة العدل</span>
+                        <span class="en-txt">Licensed by Ministry of Justice</span>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 font-semibold mt-1">
+                        <span class="ar-txt">وموثق معتمد</span>
+                        <span class="en-txt">Certified Notary</span>
+                        <span class="text-gold">462590</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -146,11 +189,16 @@
     <section id="about" class="py-20 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary dark:text-white inline-block border-b-2 border-gold pb-2">صوتك الأقوى وشريكك القانوني</h2>
+                <h2 class="text-3xl font-bold text-primary dark:text-white inline-block border-b-2 border-gold pb-2">
+                    <span class="ar-txt">صوتك الأقوى وشريكك القانوني</span>
+                    <span class="en-txt">Your Strongest Voice & Legal Partner</span>
+                </h2>
             </div>
             <div class="max-w-4xl mx-auto text-center text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                <p class="mb-6">ولأن حقوقك ومصالحك القانونية تتطلب درعاً قانونياً حصيناً يبرز مكتب الأستاذ عبدالفتاح الحازمي كمستشارك القانوني وخيارك الأوثق لحفظ حقوقك. لا مجال للمصادفات في عالم تحكمه الأنظمة وتتشابك فيه الحقوق.</p>
-                <p>نحن لا نقدم مجرد استشارات عابرة، بل نصمم "استراتيجيات استباقية" تضعك دائماً في موقف القوة. بخبرة متجذرة في أروقة المحاكم، واحترافية لا تقبل المساومة.</p>
+                <p class="mb-6">
+                    <span class="ar-txt">ولأن حقوقك ومصالحك القانونية تتطلب درعاً قانونياً حصيناً يبرز مكتب الأستاذ عبدالفتاح الحازمي كمستشارك القانوني وخيارك الأوثق لحفظ حقوقك. لا مجال للمصادفات في عالم تحكمه الأنظمة وتتشابك فيه الحقوق.</span>
+                    <span class="en-txt">Because your rights and legal interests require an impenetrable legal shield, Abdul Fattah Al-Hazmi's office stands out as your most reliable legal advisor. There is no room for coincidence in a world governed by regulations.</span>
+                </p>
             </div>
         </div>
     </section>
@@ -158,70 +206,28 @@
     <section id="services" class="py-20 bg-light dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">خدماتنا القانونية</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">
+                    <span class="ar-txt">خدماتنا القانونية</span>
+                    <span class="en-txt">Our Legal Services</span>
+                </h2>
                 <div class="w-24 h-1 bg-gold mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
                     <i class="fa-solid fa-gavel text-4xl text-gold mb-6"></i>
-                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">الترافع أمام المحاكم</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نمثّل عملاءنا في جميع القضايا المدنية، التجارية، الجنائية، وقضايا الأحوال الشخصية، أمام مختلف درجات المحاكم في المملكة.</p>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3"><span class="ar-txt">الترافع أمام المحاكم</span><span class="en-txt">Litigation</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"><span class="ar-txt">نمثّل عملاءنا في جميع القضايا المدنية، التجارية، الجنائية، أمام مختلف درجات المحاكم.</span><span class="en-txt">We represent our clients in all civil, commercial, and criminal cases before courts.</span></p>
                 </div>
                 <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
                     <i class="fa-solid fa-user-tie text-4xl text-gold mb-6"></i>
-                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">الاستشارات القانونية</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نقدّم استشارات متخصصة تغطي مختلف فروع القانون، مدعومة بخبرة واسعة وفهم عميق للأنظمة السعودية.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
-                    <i class="fa-solid fa-handshake-angle text-4xl text-gold mb-6"></i>
-                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">تسوية النزاعات</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نُعالج النزاعات بالطرق الودية أو من خلال الترافع القضائي، بما يحقق مصلحة العميل ويُجنّبه التعقيدات.</p>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3"><span class="ar-txt">الاستشارات القانونية</span><span class="en-txt">Legal Consultations</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"><span class="ar-txt">نقدّم استشارات متخصصة تغطي مختلف فروع القانون، مدعومة بخبرة واسعة وفهم عميق للأنظمة.</span><span class="en-txt">Providing specialized consultations covering various branches of law with deep expertise.</span></p>
                 </div>
                 <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
                     <i class="fa-solid fa-stamp text-4xl text-gold mb-6"></i>
-                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">خدمات التوثيق</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">توثيق العقود والوكالات والإقرارات والشراكات من خلال موثق معتمد، وفق أعلى درجات الأمان والسرعة والسرية.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
-                    <i class="fa-solid fa-building-circle-check text-4xl text-gold mb-6"></i>
-                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">التسجيل العيني للعقار</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">تسجيل العقارات لضمان توثيق الملكيات رسمياً، وفق الأنظمة المعتمدة في المملكة، وتمثيل الموكل أمام الجهات المختصة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">لماذا تختار مكتب الأستاذ عبد الفتاح الحازمي؟</h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">دقة متناهية</h3>
-                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">في توجيه الإجراءات النظامية، وصياغة عقود ومرافعات محصّنة قانونياً تضمن قوة موقفك أمام كافة الجهات.</p>
-                </div>
-
-                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                    </div>
-                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">إدارة ذكية للإنجاز</h3>
-                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">للملفات القانونية والالتزام التام بالمواعيد لضمان الإنجاز السريع وفق أعلى معايير وتوجيهات وزارة العدل.</p>
-                </div>
-
-                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                    </div>
-                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">مواكبة تشريعية</h3>
-                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">إستشارات مبنية على خبرة ومواكبة لحظية لكافة تحديثات النظام التشريعي السعودي لضمان سلامة موقفك.</p>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3"><span class="ar-txt">خدمات التوثيق</span><span class="en-txt">Notary Services</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"><span class="ar-txt">توثيق العقود والوكالات والإقرارات والشراكات من خلال موثق معتمد، وفق أعلى درجات الأمان.</span><span class="en-txt">Documenting contracts, agencies, and partnerships through a certified notary safely.</span></p>
                 </div>
             </div>
         </div>
@@ -230,36 +236,30 @@
     <section id="contact" class="py-20 bg-light dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100 dark:border-gray-700">
-                
                 <div class="p-10 lg:w-1/2">
-                    <h2 class="text-3xl font-bold text-primary dark:text-white mb-6">تواصل معنا</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-8">نتميز بسرعة الاستجابة، الالتزام بأنظمة وتوجيهات وزارة العدل السعودية، والمتابعة الدورية للملفات والقضايا.</p>
+                    <h2 class="text-3xl font-bold text-primary dark:text-white mb-6">
+                        <span class="ar-txt">تواصل معنا</span><span class="en-txt">Contact Us</span>
+                    </h2>
                     
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-location-dot"></i></div>
                             <div>
-                                <h4 class="font-bold text-primary dark:text-white">العنوان</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">7131 طريق الأمير سلطان بن عبد العزيز، 3490 حي الروضة، جازان</p>
+                                <h4 class="font-bold text-primary dark:text-white"><span class="ar-txt">العنوان</span><span class="en-txt">Address</span></h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400"><span class="ar-txt">7131 طريق الأمير سلطان بن عبد العزيز، 3490 حي الروضة، جازان</span><span class="en-txt">7131 Prince Sultan Bin Abdulaziz Rd, Al Rawdah, Jazan</span></p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-phone"></i></div>
                             <div>
-                                <h4 class="font-bold text-primary dark:text-white">الهاتف</h4>
+                                <h4 class="font-bold text-primary dark:text-white"><span class="ar-txt">الهاتف</span><span class="en-txt">Phone</span></h4>
                                 <p class="text-sm text-gray-600 dark:text-gray-400" dir="ltr">0551110097</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[#25D366]/20 text-[#25D366] rounded-full flex items-center justify-center text-xl">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-[#25D366]/20 text-[#25D366] rounded-full flex items-center justify-center text-xl shrink-0"><i class="fa-brands fa-whatsapp"></i></div>
                             <div>
-                                <h4 class="font-bold text-primary dark:text-white">واتساب</h4>
+                                <h4 class="font-bold text-primary dark:text-white"><span class="ar-txt">واتساب</span><span class="en-txt">WhatsApp</span></h4>
                                 <p class="text-sm text-gray-600 dark:text-gray-400" dir="ltr">0530441445</p>
                             </div>
                         </div>
@@ -267,72 +267,85 @@
 
                     <div class="mt-10">
                         <a href="https://wa.me/966530441445" target="_blank" class="block w-full text-center bg-primary text-gold border-2 border-gold hover:bg-gold hover:text-primary font-bold py-3 rounded-lg transition duration-300">
-                            اطلب خدمتك الآن عبر الواتساب <i class="fa-brands fa-whatsapp ml-2"></i>
+                            <span class="ar-txt">اطلب خدمتك الآن عبر الواتساب</span><span class="en-txt">Request Service via WhatsApp</span> <i class="fa-brands fa-whatsapp ml-2 mr-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:w-1/2 h-80 lg:h-auto">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.3043395273106!2d42.557031728913586!3d16.901831202636885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607e2a5f3a6f683%3A0x3f9f340936b06a1!2zR0dEQTcxMzHYjCA3MTMxINi32LHZitmCINin2YTYo9mF2YrYsSDYs9mE2LfYp9mGINio2YYg2LnYqNivINin2YTYudiy2YrYstiMIDM0OTDYjCDYrdmKINin2YTYsdmI2LbYqdiMINis2KfYstin2YYgODI3MjQ!5e1!3m2!1sar!2ssa!4v1774341341843!5m2!1sar!2ssa" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="lg:w-1/2 h-80 lg:h-auto p-2">
+                    <div class="w-full h-full rounded-2xl border-4 border-gold shadow-2xl overflow-hidden relative">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.3043395273106!2d42.557031728913586!3d16.901831202636885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607e2a5f3a6f683%3A0x3f9f340936b06a1!2zR0dEQTcxMzHYjCA3MTMxINi32LHZitmCINin2YTYo9mF2YrYsSDYs9mE2LfYp9mGINio2YYg2LnYqNivINin2YTYudiy2YrYstiMIDM0OTDYjCDYrdmKINin2YTYsdmI2LbYqdiMINis2KfYstin2YYgODI3MjQ!5e1!3m2!1sar!2ssa!4v1774341341843!5m2!1sar!2ssa" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[120%] bg-white dark:bg-gray-800 p-3 rounded-lg border-2 border-gold shadow-2xl z-20 whitespace-nowrap">
+                            <p class="text-sm font-bold text-primary dark:text-white">
+                                <span class="ar-txt">مكتب عبدالفتاح الحازمي للمحاماة</span>
+                                <span class="en-txt">Abdul Fattah Al-Hazmi Law Firm</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-primary pt-16 pb-8 text-white text-center md:text-right">
+    <footer class="bg-primary pt-16 pb-8 text-white text-center md:text-right rtl:md:text-right ltr:md:text-left">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8 mb-8">
             <div>
-                <a href="#" class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                    <i class="fa-solid fa-scale-balanced text-gold text-3xl"></i>
-                    <h2 class="font-bold text-xl leading-tight">عبدالفتاح الحازمي</h2>
+                <a href="#" class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <img src="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp" alt="شعار المكتب السفلي" class="h-12 w-auto">
+                    <h2 class="font-bold text-xl leading-tight">
+                        <span class="ar-txt">عبدالفتاح الحازمي</span><span class="en-txt">Al-Hazmi Firm</span>
+                    </h2>
                 </a>
-                <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0">مكتب قانوني مرخص يقدم خدمات المحاماة، الترافع، الاستشارات، والتوثيق باحترافية عالية، مع التزام كامل بحماية حقوق عملائنا داخل المملكة وخارجها.</p>
+                <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0">
+                    <span class="ar-txt">مكتب قانوني مرخص يقدم خدمات المحاماة والاستشارات باحترافية عالية.</span>
+                    <span class="en-txt">Licensed law firm providing highly professional legal services and consultations.</span>
+                </p>
             </div>
             
             <div>
-                <h3 class="text-gold font-bold text-lg mb-4">روابط هامة</h3>
+                <h3 class="text-gold font-bold text-lg mb-4"><span class="ar-txt">روابط هامة</span><span class="en-txt">Important Links</span></h3>
                 <ul class="space-y-2 text-gray-400">
-                    <li><a href="#" class="hover:text-gold transition">الرئيسية</a></li>
-                    <li><a href="#services" class="hover:text-gold transition">خدماتنا القانونية</a></li>
-                    <li><a href="#about" class="hover:text-gold transition">من نحن</a></li>
-                    <li><a href="#contact" class="hover:text-gold transition">تواصل معنا</a></li>
+                    <li><a href="#" class="hover:text-gold transition"><span class="ar-txt">الرئيسية</span><span class="en-txt">Home</span></a></li>
+                    <li><a href="#services" class="hover:text-gold transition"><span class="ar-txt">خدماتنا</span><span class="en-txt">Services</span></a></li>
+                    <li><a href="#about" class="hover:text-gold transition"><span class="ar-txt">من نحن</span><span class="en-txt">About Us</span></a></li>
+                    <li><a href="#contact" class="hover:text-gold transition"><span class="ar-txt">تواصل معنا</span><span class="en-txt">Contact Us</span></a></li>
                 </ul>
             </div>
 
             <div>
-                <h3 class="text-gold font-bold text-lg mb-4">تواصل معنا</h3>
+                <h3 class="text-gold font-bold text-lg mb-4"><span class="ar-txt">تواصل معنا</span><span class="en-txt">Connect With Us</span></h3>
                 <div class="flex justify-center md:justify-start gap-4 mb-4">
                     <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://wa.me/966530441445" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm mb-2">جميع الحقوق محفوظة &copy; 2026 لمكتب عبدالفتاح الحازمي للمحاماة.</p>
-            <p class="text-gold text-sm font-semibold">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</p>
+            <p class="text-gray-400 text-sm mb-2">
+                <span class="ar-txt">جميع الحقوق محفوظة © 2026 لمكتب عبدالفتاح الحازمي للمحاماة.</span>
+                <span class="en-txt">All rights reserved © 2026 Abdul Fattah Al-Hazmi Law Firm.</span>
+            </p>
+            <p class="text-gold text-sm font-semibold">
+                <span class="ar-txt">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</span>
+                <span class="en-txt">👑 Developed & Designed by: Eng. Islam El-Sheikh 👑</span>
+            </p>
         </div>
     </footer>
 
     <script>
-        // 1. Splash Screen Logic (Fail-Safe integrated)
+        // 1. Splash Screen Logic
         const splashScreen = document.getElementById('splash-screen');
-        
         function closeSplashScreen() {
             if(splashScreen) {
                 splashScreen.classList.add('fade-out');
                 setTimeout(() => {
                     splashScreen.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Enable scrolling
+                    document.body.style.overflow = 'auto';
                 }, 500);
             }
         }
-
-        // Auto close after 3 seconds
-        window.addEventListener('load', () => {
-            setTimeout(closeSplashScreen, 3000);
-        });
+        window.addEventListener('load', () => setTimeout(closeSplashScreen, 3000));
 
         // 2. Dark Mode Toggle
         function toggleDarkMode() {
@@ -340,31 +353,28 @@
             const icon = document.getElementById('theme-icon');
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                icon.classList.replace('fa-sun', 'fa-moon');
                 localStorage.setItem('theme', 'light');
             } else {
                 html.classList.add('dark');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                icon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'dark');
             }
         }
-
-        // Check local storage for theme
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
         }
 
-        // 3. Language Toggle (Structural LTR/RTL Logic)
+        // 3. Language Toggle (Fully Working Now!)
         function toggleLang() {
             const html = document.documentElement;
             if (html.getAttribute('dir') === 'rtl') {
+                // Switch to English
                 html.setAttribute('dir', 'ltr');
                 html.setAttribute('lang', 'en');
-                // Note: For full bilingual support, you will need to replace text content here dynamically or redirect to an english page.
             } else {
+                // Switch to Arabic
                 html.setAttribute('dir', 'rtl');
                 html.setAttribute('lang', 'ar');
             }
@@ -372,8 +382,7 @@
 
         // 4. Mobile Menu Toggle
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
     </script>
 </body>
