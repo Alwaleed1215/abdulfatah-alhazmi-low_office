@@ -1,645 +1,380 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عبدالفتاح الحازمي للمحاماة والإستشارات القانونية والتوثيق العيني للعقار</title>
+    <title>مكتب عبدالفتاح الحازمي للمحاماة والاستشارات القانونية</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C1E16', /* بني داكن - منصة القاضي */
+                        gold: '#D4AF37',    /* ذهبي لامع */
+                        light: '#F8F5F0',   /* لون خلفية مريح */
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        /* المتغيرات والألوان الأساسية */
-        :root {
-            --primary-color: #0c1e33; /* كحلي ملكي داكن */
-            --primary-light: #153254; 
-            --secondary-color: #cda45e; /* ذهبي فخم */
-            --secondary-hover: #b38b47;
-            --text-color: #333;
-            --text-gray: #666;
-            --bg-light: #f4f6f9;
-            --white: #fff;
-            --transition: all 0.3s ease;
+        body { font-family: 'Cairo', sans-serif; overflow: hidden; } /* Overflow hidden for splash screen */
+        
+        /* Hover & Animation Effects */
+        .hover-card { transition: all 0.4s ease; }
+        .hover-card:hover { transform: translateY(-10px); border-color: #D4AF37; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2); }
+        
+        .bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Glassmorphism */
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        .dark .glass { background: rgba(44, 30, 22, 0.85); backdrop-filter: blur(10px); }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            color: var(--text-color);
-            background-color: var(--white);
-            overflow-x: hidden;
-            line-height: 1.8;
-        }
-
-        /* تنسيقات عامة */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        .bg-light {
-            background-color: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .section-title .line {
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        /* شريط التنقل العلوي (Desktop) */
-        .navbar {
-            background-color: rgba(12, 30, 51, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            text-decoration: none;
-        }
-
-        .logo h2 {
-            color: var(--secondary-color);
-            font-size: 1.6rem;
-            font-weight: 900;
-            margin-bottom: -5px;
-        }
-
-        .logo p {
-            color: var(--white);
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-            opacity: 0.9;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-right: 30px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* القسم الرئيسي (Hero) */
-        .hero {
-            background: linear-gradient(rgba(12, 30, 51, 0.85), rgba(12, 30, 51, 0.9)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-content h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--secondary-color);
-        }
-
-        /* من نحن */
-        .about-text {
-            text-align: justify;
-            text-align-last: center;
-            font-size: 1.2rem;
-            max-width: 900px;
-            margin: 0 auto;
-            color: var(--text-gray);
-            line-height: 2;
-        }
-
-        /* الخدمات */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            padding: 40px 30px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            border-bottom: 4px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background-color: var(--primary-light);
-            transition: var(--transition);
-            z-index: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--secondary-color);
-        }
-
-        .service-card:hover::before {
-            height: 100%;
-        }
-
-        .service-card * {
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-        }
-
-        .service-card:hover h3, 
-        .service-card:hover p {
-            color: var(--white);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-            display: inline-block;
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            font-weight: 800;
-        }
-
-        /* تواصل معنا */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .info-box {
-            padding: 30px;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .info-box i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .info-box h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .info-box p {
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        /* الفوتر */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 0;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        footer p {
-            opacity: 0.9;
-        }
-
-        /* أيقونة الواتساب العائمة */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: var(--transition);
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* البار السفلي للجوال (Mobile Bottom Nav) */
-        .bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-            z-index: 999;
-            padding: 10px 0;
-            border-top: 2px solid var(--secondary-color);
-        }
-
-        .bottom-nav-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .bottom-nav-item {
-            text-decoration: none;
-            color: var(--text-gray);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .bottom-nav-item i {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-        }
-
-        .bottom-nav-item.active,
-        .bottom-nav-item:hover {
-            color: var(--secondary-color);
-        }
-
-        /* استعلامات الشاشات (Responsive) */
-        @media (max-width: 768px) {
-            /* إخفاء روابط القائمة العلوية في الجوال */
-            .nav-links {
-                display: none; 
-            }
-            
-            /* إظهار البار السفلي */
-            .bottom-nav {
-                display: block;
-            }
-
-            /* رفع أيقونة الواتساب لتجنب البار السفلي */
-            .floating-whatsapp {
-                bottom: 80px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 28px;
-            }
-
-            /* تعديل مساحات الهيرو */
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-content h3 {
-                font-size: 1.1rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-                padding: 0 10px;
-            }
-
-            /* ترك مساحة في أسفل الموقع للبار السفلي */
-            body {
-                padding-bottom: 60px; 
-            }
-            
-            .section-padding {
-                padding: 50px 0;
-            }
-        }
+        /* Splash Screen Animation */
+        .fade-out { animation: fadeOut 0.5s forwards; }
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
     </style>
 </head>
-<body>
+<body class="bg-light dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="logo">
-                <h2>مكتب الحازمي</h2>
-                <p>للمحاماة والتوثيق العيني</p>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#services">خدماتنا</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#blog">المدونة</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
+    <div id="splash-screen" class="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center cursor-pointer" onclick="closeSplashScreen()">
+        <div class="text-center animate-pulse">
+            <i class="fa-solid fa-scale-balanced text-gold text-6xl mb-4"></i>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">مكتب عبدالفتاح الحازمي</h1>
+            <p class="text-gold text-lg">للمحاماة والاستشارات القانونية والتوثيق</p>
         </div>
-    </nav>
+        <div class="absolute bottom-8 text-center w-full">
+            <div class="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-white text-sm">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</p>
+        </div>
+    </div>
 
-    <header id="home" class="hero">
-        <div class="container hero-content">
-            <h3>مكتب الأستاذ عبدالفتاح الحازمي</h3>
-            <h1>رؤية قانونية ثاقبة<br><span style="color: var(--secondary-color);">ودرع حصين لحقوقك</span></h1>
-            <p>لأن حقوقك ومصالحك القانونية تتطلب درعاً قانونياً حصيناً، يبرز مكتبنا كمستشارك القانوني وخيارك الأوثق لحفظ حقوقك؛ فلا مجال للمصادفات في عالم تحكمه الأنظمة وتتشابك فيه الحقوق.</p>
-            <a href="#contact" class="btn btn-primary">اطلب استشارتك القانونية الآن</a>
+    <div class="bg-primary text-gold text-sm py-2 px-4 flex justify-between items-center hidden md:flex">
+        <div><i class="fa-solid fa-scale-unbalanced mr-2"></i> مرخص من وزارة العدل | ترخيص رقم: 462590</div>
+        <div class="flex gap-4">
+            <span><i class="fa-solid fa-phone mr-1"></i> 0551110097</span>
+            <span><i class="fa-solid fa-envelope mr-1"></i> info@alhazmilaw.com</span>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-primary dark:text-gold text-3xl"></i>
+                <div>
+                    <h2 class="font-bold text-xl text-primary dark:text-white leading-tight">عبدالفتاح الحازمي</h2>
+                    <span class="text-xs text-gold font-semibold">للمحاماة والاستشارات القانونية</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex gap-6 items-center font-semibold text-primary dark:text-white">
+                <a href="#" class="hover:text-gold transition">الرئيسية</a>
+                <a href="#services" class="hover:text-gold transition">خدماتنا</a>
+                <a href="#about" class="hover:text-gold transition">من نحن</a>
+                <a href="#contact" class="hover:text-gold transition">تواصل معنا</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLang()" class="text-primary dark:text-white hover:text-gold border border-gray-300 dark:border-gray-600 px-2 py-1 rounded text-sm transition">EN/AR</button>
+                <button onclick="toggleDarkMode()" class="text-primary dark:text-white hover:text-gold text-xl transition">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <button class="md:hidden text-primary dark:text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <section id="services" class="services section-padding bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا القانونية</h2>
-                <div class="line"></div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-gavel service-icon"></i>
-                    <h3>الترافع أمام المحاكم</h3>
-                    <p>تمثيل قانوني صارم واحترافي أمام كافة درجات المحاكم واللجان القضائية لضمان وحماية حقوقك بالكامل.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-file-contract service-icon"></i>
-                    <h3>صياغة ومراجعة العقود</h3>
-                    <p>هندسة قانونية دقيقة للعقود والاتفاقيات لسد الثغرات وحماية مصالحك التجارية والشخصية.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-handshake-angle service-icon"></i>
-                    <h3>تسوية النزاعات</h3>
-                    <p>إدارة وتفكيك أعقد النزاعات عبر حلول ودية أو تحكيمية تضمن لك نتائج حاسمة وسريعة ومضمونة.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-city service-icon"></i>
-                    <h3>التسجيل العيني للعقار</h3>
-                    <p>تسهيل وإتمام كافة إجراءات التسجيل العيني لضمان استقرار ملكيتك العقارية وحمايتها من أي تجاوزات.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-stamp service-icon"></i>
-                    <h3>خدمة التوثيق</h3>
-                    <p>خدمات توثيقية معتمدة لإصدار الوكالات وتوثيق العقود والإقرارات بمرونة وموثوقية عالية.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-balance-scale-right service-icon"></i>
-                    <h3>الإستشارات القانونية</h3>
-                    <p>نقدم لك الرأي القانوني السديد والمبني على دراسة مستفيضة لواقعتك، لنضعك دائماً في موقف القوة.</p>
+    <div id="mobile-menu" class="fixed inset-0 bg-primary/95 z-[60] hidden flex flex-col items-center justify-center text-white text-2xl font-bold space-y-8">
+        <button class="absolute top-6 right-6 text-4xl text-gold" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#" onclick="toggleMobileMenu()" class="hover:text-gold">الرئيسية</a>
+        <a href="#services" onclick="toggleMobileMenu()" class="hover:text-gold">خدماتنا</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-gold">من نحن</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-gold">تواصل معنا</a>
+    </div>
+
+    <div class="fixed left-4 bottom-24 md:bottom-8 flex flex-col gap-3 z-40">
+        <a href="https://wa.me/966530441445" target="_blank" class="bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg bounce hover:bg-green-600 transition">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:0551110097" class="bg-primary text-gold border border-gold w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg hover:bg-gold hover:text-primary transition">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full glass border-t border-gray-200 dark:border-gray-700 z-50 flex justify-around py-3 text-primary dark:text-white text-xs">
+        <a href="#" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-house text-lg mb-1"></i> الرئيسية</a>
+        <a href="#services" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-briefcase text-lg mb-1"></i> خدماتنا</a>
+        <a href="#about" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-users text-lg mb-1"></i> من نحن</a>
+        <a href="#contact" class="flex flex-col items-center hover:text-gold"><i class="fa-solid fa-envelope text-lg mb-1"></i> تواصل</a>
+    </div>
+
+    <section class="relative bg-primary py-24 md:py-32 overflow-hidden flex items-center justify-center text-center">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">مكتب عبدالفتاح الحازمي للمحاماة</h1>
+            <p class="text-gold text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-light">رؤية قانونية ثاقبة ودرع حصين لحقوقك.. تمثيل قضائي حاسم وهندسة للاستشارات القانونية.</p>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl inline-flex flex-col md:flex-row items-center gap-6 border-b-4 border-gold mx-auto animate-bounce" style="animation-duration: 3s;">
+                <img src="https://imgg.io/images/2026/03/24/efc11358a361a78aa39b8e52a76760aa.webp" alt="شعار وزارة العدل" class="h-20 w-auto">
+                <div class="text-center md:text-right">
+                    <h3 class="text-xl font-bold text-primary dark:text-white">مكتب مرخص من وزارة العدل</h3>
+                    <p class="text-gray-600 dark:text-gray-300 font-semibold mt-1">وموثق معتمد <span class="text-gold">462590</span></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>من نحن</h2>
-                <div class="line"></div>
+    <section id="about" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary dark:text-white inline-block border-b-2 border-gold pb-2">صوتك الأقوى وشريكك القانوني</h2>
             </div>
-            <div class="about-content">
-                <p class="about-text">
-                    نحن لا نقدم استشارات قانونية عابرة، بل نصمم استراتيجيات استباقية تضعك دائماً في موقف القوة. بخبرة متجذرة في أروقة المحاكم، واحترافية لا تقبل المساومة، يمثل <strong>مكتب الأستاذ عبدالفتاح الحازمي</strong> الخيار الأول والموثوق للنخبة من الأفراد والكيانات التجارية. نحن نتولى تفكيك أعقد النزاعات، وهندسة أدق العقود، لنضمن لك حماية مطلقة لمكتسباتك، ونتائج قانونية حاسمة تقلب الموازين لصالحك.
-                </p>
+            <div class="max-w-4xl mx-auto text-center text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+                <p class="mb-6">ولأن حقوقك ومصالحك القانونية تتطلب درعاً قانونياً حصيناً يبرز مكتب الأستاذ عبدالفتاح الحازمي كمستشارك القانوني وخيارك الأوثق لحفظ حقوقك. لا مجال للمصادفات في عالم تحكمه الأنظمة وتتشابك فيه الحقوق.</p>
+                <p>نحن لا نقدم مجرد استشارات عابرة، بل نصمم "استراتيجيات استباقية" تضعك دائماً في موقف القوة. بخبرة متجذرة في أروقة المحاكم، واحترافية لا تقبل المساومة.</p>
             </div>
         </div>
     </section>
 
-    <section id="blog" class="blog section-padding bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>المدونة القانونية</h2>
-                <div class="line"></div>
-                <p style="text-align: center; margin-top: 20px; color: var(--text-gray); font-size: 1.2rem;">
-                    <i class="fas fa-tools" style="font-size: 2rem; color: var(--secondary-color); display: block; margin-bottom: 15px;"></i>
-                    قريباً.. أحدث المقالات، شروحات الأنظمة، والأخبار القانونية.
-                </p>
+    <section id="services" class="py-20 bg-light dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">خدماتنا القانونية</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="contact section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>تواصل معنا</h2>
-                <div class="line"></div>
-            </div>
-            <div class="contact-info">
-                <div class="info-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>العنوان</h4>
-                    <p>المملكة العربية السعودية، الرياض</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
+                    <i class="fa-solid fa-gavel text-4xl text-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">الترافع أمام المحاكم</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نمثّل عملاءنا في جميع القضايا المدنية، التجارية، الجنائية، وقضايا الأحوال الشخصية، أمام مختلف درجات المحاكم في المملكة.</p>
                 </div>
-                <div class="info-box">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>الهاتف</h4>
-                    <p dir="ltr">+966 5X XXX XXXX</p>
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
+                    <i class="fa-solid fa-user-tie text-4xl text-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">الاستشارات القانونية</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نقدّم استشارات متخصصة تغطي مختلف فروع القانون، مدعومة بخبرة واسعة وفهم عميق للأنظمة السعودية.</p>
                 </div>
-                <div class="info-box">
-                    <i class="fas fa-envelope"></i>
-                    <h4>البريد الإلكتروني</h4>
-                    <p>info@alhazmilaw.com</p>
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
+                    <i class="fa-solid fa-handshake-angle text-4xl text-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">تسوية النزاعات</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">نُعالج النزاعات بالطرق الودية أو من خلال الترافع القضائي، بما يحقق مصلحة العميل ويُجنّبه التعقيدات.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
+                    <i class="fa-solid fa-stamp text-4xl text-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">خدمات التوثيق</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">توثيق العقود والوكالات والإقرارات والشراكات من خلال موثق معتمد، وفق أعلى درجات الأمان والسرعة والسرية.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg border border-transparent hover-card">
+                    <i class="fa-solid fa-building-circle-check text-4xl text-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-3">التسجيل العيني للعقار</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">تسجيل العقارات لضمان توثيق الملكيات رسمياً، وفق الأنظمة المعتمدة في المملكة، وتمثيل الموكل أمام الجهات المختصة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>جميع الحقوق محفوظة &copy; 2026 لمكتب الأستاذ عبدالفتاح الحازمي للمحاماة والإستشارات القانونية والتوثيق العيني للعقار</p>
-            <p style="font-size: 14px; margin-top: 10px; color: #aaa;">تم التطوير بواسطة م. إسلام</p>
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">لماذا تختار مكتب الأستاذ عبد الفتاح الحازمي؟</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">دقة متناهية</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">في توجيه الإجراءات النظامية، وصياغة عقود ومرافعات محصّنة قانونياً تضمن قوة موقفك أمام كافة الجهات.</p>
+                </div>
+
+                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">إدارة ذكية للإنجاز</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">للملفات القانونية والالتزام التام بالمواعيد لضمان الإنجاز السريع وفق أعلى معايير وتوجيهات وزارة العدل.</p>
+                </div>
+
+                <div class="relative bg-light dark:bg-gray-800 p-8 rounded-xl border-2 border-gold shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 right-1/2 transform translate-x-1/2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-primary dark:text-white mb-3 text-center">مواكبة تشريعية</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 text-sm">إستشارات مبنية على خبرة ومواكبة لحظية لكافة تحديثات النظام التشريعي السعودي لضمان سلامة موقفك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-light dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100 dark:border-gray-700">
+                
+                <div class="p-10 lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-primary dark:text-white mb-6">تواصل معنا</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">نتميز بسرعة الاستجابة، الالتزام بأنظمة وتوجيهات وزارة العدل السعودية، والمتابعة الدورية للملفات والقضايا.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-white">العنوان</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">7131 طريق الأمير سلطان بن عبد العزيز، 3490 حي الروضة، جازان</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gold/20 text-gold rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-white">الهاتف</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400" dir="ltr">0551110097</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-[#25D366]/20 text-[#25D366] rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary dark:text-white">واتساب</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400" dir="ltr">0530441445</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="https://wa.me/966530441445" target="_blank" class="block w-full text-center bg-primary text-gold border-2 border-gold hover:bg-gold hover:text-primary font-bold py-3 rounded-lg transition duration-300">
+                            اطلب خدمتك الآن عبر الواتساب <i class="fa-brands fa-whatsapp ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 h-80 lg:h-auto">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.3043395273106!2d42.557031728913586!3d16.901831202636885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607e2a5f3a6f683%3A0x3f9f340936b06a1!2zR0dEQTcxMzHYjCA3MTMxINi32LHZitmCINin2YTYo9mF2YrYsSDYs9mE2LfYp9mGINio2YYg2LnYqNivINin2YTYudiy2YrYstiMIDM0OTDYjCDYrdmKINin2YTYsdmI2LbYqdiMINis2KfYstin2YYgODI3MjQ!5e1!3m2!1sar!2ssa!4v1774341341843!5m2!1sar!2ssa" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary pt-16 pb-8 text-white text-center md:text-right">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8 mb-8">
+            <div>
+                <a href="#" class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <i class="fa-solid fa-scale-balanced text-gold text-3xl"></i>
+                    <h2 class="font-bold text-xl leading-tight">عبدالفتاح الحازمي</h2>
+                </a>
+                <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0">مكتب قانوني مرخص يقدم خدمات المحاماة، الترافع، الاستشارات، والتوثيق باحترافية عالية، مع التزام كامل بحماية حقوق عملائنا داخل المملكة وخارجها.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-gold font-bold text-lg mb-4">روابط هامة</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-gold transition">الرئيسية</a></li>
+                    <li><a href="#services" class="hover:text-gold transition">خدماتنا القانونية</a></li>
+                    <li><a href="#about" class="hover:text-gold transition">من نحن</a></li>
+                    <li><a href="#contact" class="hover:text-gold transition">تواصل معنا</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-gold font-bold text-lg mb-4">تواصل معنا</h3>
+                <div class="flex justify-center md:justify-start gap-4 mb-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/966530441445" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gold hover:text-primary flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm mb-2">جميع الحقوق محفوظة &copy; 2026 لمكتب عبدالفتاح الحازمي للمحاماة.</p>
+            <p class="text-gold text-sm font-semibold">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/966500000000" target="_blank" class="floating-whatsapp" title="تواصل معنا عبر واتساب">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav class="bottom-nav">
-        <div class="container bottom-nav-container">
-            <a href="#home" class="bottom-nav-item active" onclick="setActiveNav(this)">
-                <i class="fas fa-home"></i>
-                <span>الرئيسية</span>
-            </a>
-            <a href="#services" class="bottom-nav-item" onclick="setActiveNav(this)">
-                <i class="fas fa-balance-scale"></i>
-                <span>الخدمات</span>
-            </a>
-            <a href="#about" class="bottom-nav-item" onclick="setActiveNav(this)">
-                <i class="fas fa-info-circle"></i>
-                <span>من نحن</span>
-            </a>
-            <a href="#contact" class="bottom-nav-item" onclick="setActiveNav(this)">
-                <i class="fas fa-phone-alt"></i>
-                <span>تواصل</span>
-            </a>
-        </div>
-    </nav>
-
     <script>
-        // دالة لتغيير اللون النشط في البار السفلي
-        function setActiveNav(element) {
-            document.querySelectorAll('.bottom-nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            element.classList.add('active');
+        // 1. Splash Screen Logic (Fail-Safe integrated)
+        const splashScreen = document.getElementById('splash-screen');
+        
+        function closeSplashScreen() {
+            if(splashScreen) {
+                splashScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Enable scrolling
+                }, 500);
+            }
         }
 
-        // التمرير السلس للروابط
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Auto close after 3 seconds
+        window.addEventListener('load', () => {
+            setTimeout(closeSplashScreen, 3000);
         });
 
-        // تغيير لون الخلفية للقائمة العلوية عند التمرير (للديسكتوب)
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(12, 30, 51, 0.98)';
-                navbar.style.padding = '10px 0';
+        // 2. Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             } else {
-                navbar.style.backgroundColor = 'rgba(12, 30, 51, 0.95)';
-                navbar.style.padding = '15px 0';
+                html.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
             }
-        });
+        }
+
+        // Check local storage for theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // 3. Language Toggle (Structural LTR/RTL Logic)
+        function toggleLang() {
+            const html = document.documentElement;
+            if (html.getAttribute('dir') === 'rtl') {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                // Note: For full bilingual support, you will need to replace text content here dynamically or redirect to an english page.
+            } else {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+            }
+        }
+
+        // 4. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
