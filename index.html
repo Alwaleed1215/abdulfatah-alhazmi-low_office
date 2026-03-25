@@ -53,11 +53,22 @@
             60% { transform: translateY(-7px); }
         }
 
+        /* Splash Screen Circle & Text Animations */
+        @keyframes drawCircle {
+            0% { stroke-dashoffset: 301.59; }
+            100% { stroke-dashoffset: 0; }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; animation-delay: 0.5s; opacity: 0; }
+
         /* Glassmorphism */
         .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
         .dark .glass { background: rgba(44, 30, 22, 0.85); backdrop-filter: blur(10px); }
 
-        /* Splash Screen Animation */
+        /* Splash Screen Fade Out */
         .fade-out { animation: fadeOut 0.5s forwards; }
         @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
@@ -66,36 +77,44 @@
 </head>
 <body class="bg-light dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 loading">
 
-    <div id="splash-screen" class="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center cursor-pointer" onclick="closeSplashScreen()">
-        <div class="text-center animate-pulse flex flex-col items-center">
-            <img src="https://imgg.io/images/2026/03/25/0325e65e427de2ba0da979b927ce5707.png" alt="مكتب عبدالفتاح الحازمي" class="h-32 w-auto mb-6">
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">
+    <div id="splash-screen" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center cursor-pointer" onclick="closeSplashScreen()">
+        <div class="text-center flex flex-col items-center">
+            
+            <div class="relative w-40 h-40 flex items-center justify-center mb-6 rounded-full">
+                <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="48" fill="transparent" stroke="#2C1E16" stroke-width="2" stroke-dasharray="301.59" stroke-dashoffset="301.59" style="animation: drawCircle 2s ease-out forwards;"></circle>
+                </svg>
+                <img src="https://imgg.io/images/2026/03/25/0325e65e427de2ba0da979b927ce5707.png" alt="مكتب عبدالفتاح الحازمي" class="h-24 w-auto relative z-10">
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold text-gold mb-2 drop-shadow-sm">
                 <span class="ar-txt">مكتب عبدالفتاح الحازمي</span>
                 <span class="en-txt">Abdul Fattah Al-Hazmi</span>
             </h1>
-            <p class="text-gold text-lg">
-                <span class="ar-txt">للمحاماة والاستشارات القانونية والتوثيق</span>
-                <span class="en-txt">Law Firm & Legal Consultations</span>
+            
+            <p class="text-primary font-bold text-lg animate-fade-in-up">
+                <span class="ar-txt">للمحاماة والإستشارات القانونية وخدمات التوثيق</span>
+                <span class="en-txt">Law Firm, Legal Consultations & Notary Services</span>
             </p>
         </div>
-        <div class="absolute bottom-8 text-center w-full">
-            <div class="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-white text-sm">
+        
+        <div class="absolute bottom-8 text-center w-full animate-fade-in-up">
+            <p class="text-primary text-sm font-semibold">
                 <span class="ar-txt">👑 تم التطوير والتصميم بواسطة : م إسلام الشيخ 👑</span>
                 <span class="en-txt">👑 Developed & Designed by: Eng. Islam El-Sheikh 👑</span>
             </p>
         </div>
     </div>
 
-    <div class="bg-primary text-gold text-sm py-2 px-4 flex justify-between items-center hidden md:flex">
+    <div class="bg-primary text-white text-sm py-2 px-4 flex justify-between items-center hidden md:flex">
         <div>
             <i class="fa-solid fa-scale-unbalanced mr-2"></i> 
             <span class="ar-txt">مرخص من وزارة العدل | ترخيص رقم: 462590</span>
             <span class="en-txt">Licensed by Ministry of Justice | License No: 462590</span>
         </div>
         <div class="flex gap-4" dir="ltr">
-            <span><i class="fa-solid fa-phone ml-1 mr-1"></i> 0551110097</span>
-            <span><i class="fa-solid fa-envelope ml-1 mr-1"></i> info@alhazmilaw.com</span>
+            <span><i class="fa-solid fa-phone ml-1 mr-1"></i> 0530441445 - 0551110097</span>
+            <span><i class="fa-solid fa-envelope ml-1 mr-1"></i> info@alhazmioffice.com</span>
         </div>
     </div>
 
@@ -156,7 +175,7 @@
         <a href="https://wa.me/966530441445" target="_blank" class="bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg bounce hover:bg-green-600 transition">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="tel:0551110097" class="bg-primary text-gold border border-gold w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg hover:bg-gold hover:text-primary transition">
+        <a href="tel:0551110097" class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg bounce hover:bg-blue-700 transition" style="animation-delay: 0.2s;">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
@@ -178,26 +197,26 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
-                <div class="bg-white/5 dark:bg-black/20 p-8 rounded-3xl border border-gold/20 backdrop-blur-sm shadow-2xl overflow-hidden">
+                <div class="bg-white/5 dark:bg-black/20 p-8 rounded-3xl border border-gold/20 backdrop-blur-sm shadow-2xl">
                     <div class="flex flex-col sm:flex-row items-center gap-6 mb-8 pb-8 border-b border-gold/20">
                         <div class="relative shrink-0">
                             <div class="absolute inset-0 rounded-full bg-gold animate-pulse opacity-30 blur-md"></div>
                             <img src="https://imgg.io/images/2026/03/25/e6c249df139929b8ab1f2050c2af0811.png" alt="الأستاذ عبدالفتاح الحازمي" class="relative w-32 h-32 rounded-full object-cover border-4 border-gold shadow-2xl z-10">
                         </div>
-                        <div class="text-center sm:text-right rtl:sm:text-right ltr:sm:text-left overflow-x-auto pb-2">
+                        <div class="text-center sm:text-right rtl:sm:text-right ltr:sm:text-left w-full">
                             <span class="text-gray-400 text-sm font-medium tracking-widest"><span class="ar-txt">المحامي</span><span class="en-txt">LAWYER</span></span>
-                            <h2 class="text-2xl lg:text-3xl font-extrabold bg-gradient-to-r from-gold via-[#F7E7CE] to-gold bg-clip-text text-transparent drop-shadow-lg mt-1 whitespace-nowrap">
+                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold bg-gradient-to-r from-gold via-[#F7E7CE] to-gold bg-clip-text text-transparent drop-shadow-lg mt-1 whitespace-nowrap">
                                 <span class="ar-txt">الأستاذ عبدالفتاح الحازمي</span>
                                 <span class="en-txt">Abdul Fattah Al-Hazmi</span>
                             </h2>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-4 mb-6">
-                        <div class="shrink-0 w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center shadow-inner mt-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="shrink-0 w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center shadow-inner">
                             <i class="fa-solid fa-scale-balanced text-2xl text-gold drop-shadow"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white leading-snug">
+                        <h3 class="text-xl font-bold text-gold leading-snug drop-shadow-sm">
                             <span class="ar-txt">حضور قانوني يمتد إلي جميع مناطق المملكة</span>
                             <span class="en-txt">Legal presence extending to all regions of the Kingdom</span>
                         </h3>
@@ -209,9 +228,9 @@
                     </div>
                 </div>
 
-                <div class="relative flex justify-center items-center group mt-12 lg:mt-0">
-                    <div class="absolute inset-0 bg-gold blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-                    <img src="https://imgg.io/images/2026/03/25/1e09a870c296a8ab05d41ab23dce262b.png" alt="ميزان العدل" class="relative max-w-full h-auto drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-500">
+                <div class="relative flex justify-center items-center group mt-12 lg:mt-0 p-4 rounded-3xl border border-gold/30 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+                    <div class="absolute inset-0 bg-gold blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity duration-500 rounded-3xl"></div>
+                    <img src="https://imgg.io/images/2026/03/25/1e09a870c296a8ab05d41ab23dce262b.png" alt="ميزان العدل" class="relative max-w-full h-auto drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-500 rounded-2xl">
                     
                     <div class="absolute -bottom-6 right-2 lg:-right-4 bg-white dark:bg-gray-800 rounded-xl p-3 shadow-2xl inline-flex flex-col sm:flex-row items-center gap-3 border-b-4 border-gold bounce z-20">
                         <img src="https://imgg.io/images/2026/03/25/0325e65e427de2ba0da979b927ce5707.png" alt="شعار الموقع" class="h-10 w-auto">
